@@ -8,6 +8,7 @@
 
 #import "ValuesViewController.h"
 
+
 @interface ValuesViewController ()
 
 @end
@@ -175,6 +176,24 @@
             leyenda.text = x;
         }
     }
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"segue.identifier %@",segue.identifier);
+    
+    if([segue.identifier isEqualToString:@"GoToReportSegue"]){
+        NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
+        
+
+        
+        [temp setObject:@"10" forKey:@"rowLimit"];
+        [temp setObject:[selectedCard objectForKey:@"holder"] forKey:@"creditCardHolder"];
+        [temp setObject:@"TIMESTAMP" forKey:@"orderBy"];
+        
+        NSLog(@"sent %@",temp);
+
+      //  [segue.destinationViewController performSelector:@selector(setReportParameters:) withObject:temp];
+    }
+    
 }
 
 @end

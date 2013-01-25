@@ -46,6 +46,9 @@
 		4196EC6516B00824005F86E4 /* ValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC6416B00824005F86E4 /* ValuesViewController.m */; };
 		4196EC6816B0488E005F86E4 /* MTXMLLists.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC6716B0488E005F86E4 /* MTXMLLists.m */; };
 		4196EC6B16B04A00005F86E4 /* GetCreditCardList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC6A16B04A00005F86E4 /* GetCreditCardList.m */; };
+		4196EC8C16B213E7005F86E4 /* GetPurchasesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC8B16B213E7005F86E4 /* GetPurchasesList.m */; };
+		4196EC8F16B21866005F86E4 /* ReportControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */; };
+		4196EC9216B21F96005F86E4 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC9116B21F96005F86E4 /* ReportCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +115,12 @@
 		4196EC6716B0488E005F86E4 /* MTXMLLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTXMLLists.m; sourceTree = "<group>"; };
 		4196EC6916B04A00005F86E4 /* GetCreditCardList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCreditCardList.h; sourceTree = "<group>"; };
 		4196EC6A16B04A00005F86E4 /* GetCreditCardList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCreditCardList.m; sourceTree = "<group>"; };
+		4196EC8A16B213E7005F86E4 /* GetPurchasesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPurchasesList.h; sourceTree = "<group>"; };
+		4196EC8B16B213E7005F86E4 /* GetPurchasesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPurchasesList.m; sourceTree = "<group>"; };
+		4196EC8D16B21866005F86E4 /* ReportControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportControllerViewController.h; sourceTree = "<group>"; };
+		4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportControllerViewController.m; sourceTree = "<group>"; };
+		4196EC9016B21F96005F86E4 /* ReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCell.h; sourceTree = "<group>"; };
+		4196EC9116B21F96005F86E4 /* ReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +171,7 @@
 			children = (
 				4196EC5F16AFF530005F86E4 /* iPhone View Controllers */,
 				4179821B16AB245400349ABA /* XMLParser */,
-				4179820416AAF59E00349ABA /* controllers */,
+				4179820416AAF59E00349ABA /* business */,
 				410393C316A83EF400D8D0CC /* AppDelegate.h */,
 				410393C416A83EF400D8D0CC /* AppDelegate.m */,
 				410393CF16A83EF400D8D0CC /* MainStoryboard_iPad.storyboard */,
@@ -195,7 +204,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4179820416AAF59E00349ABA /* controllers */ = {
+		4179820416AAF59E00349ABA /* business */ = {
 			isa = PBXGroup;
 			children = (
 				4179820A16AB047F00349ABA /* GetXML.h */,
@@ -204,8 +213,10 @@
 				4196EC6716B0488E005F86E4 /* MTXMLLists.m */,
 				4196EC6916B04A00005F86E4 /* GetCreditCardList.h */,
 				4196EC6A16B04A00005F86E4 /* GetCreditCardList.m */,
+				4196EC8A16B213E7005F86E4 /* GetPurchasesList.h */,
+				4196EC8B16B213E7005F86E4 /* GetPurchasesList.m */,
 			);
-			name = controllers;
+			name = business;
 			sourceTree = "<group>";
 		};
 		4179821B16AB245400349ABA /* XMLParser */ = {
@@ -250,6 +261,10 @@
 				4196EC6116AFFAEA005F86E4 /* WhatViewController.m */,
 				4196EC6316B00824005F86E4 /* ValuesViewController.h */,
 				4196EC6416B00824005F86E4 /* ValuesViewController.m */,
+				4196EC8D16B21866005F86E4 /* ReportControllerViewController.h */,
+				4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */,
+				4196EC9016B21F96005F86E4 /* ReportCell.h */,
+				4196EC9116B21F96005F86E4 /* ReportCell.m */,
 			);
 			name = "iPhone View Controllers";
 			sourceTree = "<group>";
@@ -350,6 +365,9 @@
 				4196EC6516B00824005F86E4 /* ValuesViewController.m in Sources */,
 				4196EC6816B0488E005F86E4 /* MTXMLLists.m in Sources */,
 				4196EC6B16B04A00005F86E4 /* GetCreditCardList.m in Sources */,
+				4196EC8C16B213E7005F86E4 /* GetPurchasesList.m in Sources */,
+				4196EC8F16B21866005F86E4 /* ReportControllerViewController.m in Sources */,
+				4196EC9216B21F96005F86E4 /* ReportCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
