@@ -185,13 +185,15 @@
         
 
         
-        [temp setObject:@"10" forKey:@"rowLimit"];
-        [temp setObject:[selectedCard objectForKey:@"holder"] forKey:@"creditCardHolder"];
+        [temp setObject:@"5" forKey:@"rowLimit"];
+        [temp setObject:[selectedCard objectForKey:@"cc_id"] forKey:@"creditCardID"];
         [temp setObject:@"TIMESTAMP" forKey:@"orderBy"];
+
+        [temp addEntriesFromDictionary:selectedCard];
         
         NSLog(@"sent %@",temp);
 
-      //  [segue.destinationViewController performSelector:@selector(setReportParameters:) withObject:temp];
+        [segue.destinationViewController performSelector:@selector(setReportParameters:) withObject:temp];
     }
     
 }

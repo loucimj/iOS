@@ -35,7 +35,6 @@
         URL = [URL stringByAppendingString:@"username="];
         URL = [URL stringByAppendingString:creditCardHolder];
     }
-    
     NSURL* url = [NSURL URLWithString:URL];
 
     NSLog(@"GetCreditCardList %@",connectionString);

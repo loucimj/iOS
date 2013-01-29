@@ -9,6 +9,7 @@
 #import "ReportControllerViewController.h"
 #import "GetPurchasesList.h"
 #import "ReportCell.h"
+#import "CardCell.h"
 
 @interface ReportControllerViewController ()
 
@@ -16,6 +17,7 @@
 
 @implementation ReportControllerViewController
 @synthesize reportParameters;
+@synthesize selectedCard;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,17 +41,36 @@
     
     NSLog(@"received %@",reportParameters);
     
-    GetPurchasesList *list = [[GetPurchasesList alloc] init];
+    NSString *title = [[NSString alloc] init];
+    NSString *imageString = [[NSString alloc] init];
+    NSDate *dateValue = [[NSDate alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
-    list.duePeriod = [reportParameters objectForKey:@"duePeriod"];
-    list.creditCardHolder = [reportParameters objectForKey:@"creditCardHolder"];
-    list.rowLimit = [reportParameters objectForKey:@"rowLimit"];
-    list.orderBy =[reportParameters objectForKey:@"orderBy"];
+    //    title = [title stringByAppendingString: [dic objectForKey:@"card_type"]];
+    title = [title stringByAppendingString:@"XXXX-"];
+    title = [title stringByAppendingString:[reportParameters objectForKey:@"cc_number"]];
+    
+    bank.text = [reportParameters objectForKey:@"bank"];
+    user.text = [reportParameters objectForKey:@"holder"];
+    card.text = title;
+    
+    imageString = [imageString stringByAppendingString:[reportParameters objectForKey:@"card_type"]];
+    imageString = [imageString stringByAppendingString:@".png"];
+    
+    creditCardImage.image = [UIImage imageNamed:imageString];
+    
+    dateValue = [reportParameters objectForKey:@"date"];
+    [formatter setDateFormat:@"dd LLLL YYYY"];
+    dateSelection.text = [formatter stringFromDate:dateValue ];
+    
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    NSNumber *n = [[NSNumber alloc] init];
+    n = [f numberFromString:[reportParameters objectForKey:@"value"]];
+    [f setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+    ticketValue.text= [f stringFromNumber:n];
+    ticketText.text = [reportParameters objectForKey:@"ticket_text"];
 
-    [list loadXML];
-    
-    tableContent = [[NSMutableArray alloc] initWithArray:list.resultSet copyItems:YES];
-    
     
 }
 
@@ -59,53 +80,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-// UITABLEVIEW -------------------------------------------------------------------------------------
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (IBAction)selectMenu:(id)sender {
+
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"GoToReportSegue" sender:sender];
     
-    
-    int selectedRow = indexPath.row;
-    NSLog(@"touch on row %d", selectedRow);
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1 ;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    // If you're serving data from an array, return the length of the array:
-    return [tableContent count];
-}
-
-
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"segue.identifier %@",segue.identifier);
     
-    ReportCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[ReportCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    if([segue.identifier isEqualToString:@"selectWhatSegue"]){
+
+        
     }
     
-    // Set the data for this cell:
-    NSMutableDictionary *dic = [tableContent objectAtIndex:indexPath.row];
-    
-/*
-    cell.descripcion = [dic objectForKey:@"]
-    cell.imageView.image = [UIImage imageNamed:image];
-    //cell.imageView.image = [UIImage imageNamed:@"flower.png"];
-    
-    // set the accessory view:
-    //    cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
-    
-    cell.imageView.frame = CGRectMake(5, 5, 32, 32);
-*/    
-    return cell;
 }
-// FIN UITABLEVIEW -------------------------------------------------------------------------------------
 
 
 @end

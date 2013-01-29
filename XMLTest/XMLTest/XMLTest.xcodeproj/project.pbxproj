@@ -28,6 +28,7 @@
 		412AA6CB16AF014E00173714 /* MASTER_old.png in Resources */ = {isa = PBXBuildFile; fileRef = 412AA6CA16AF014D00173714 /* MASTER_old.png */; };
 		412AA6CD16AF015500173714 /* VISA.png in Resources */ = {isa = PBXBuildFile; fileRef = 412AA6CC16AF015500173714 /* VISA.png */; };
 		412AA6CF16AF0C4D00173714 /* MASTER.png in Resources */ = {isa = PBXBuildFile; fileRef = 412AA6CE16AF0C4D00173714 /* MASTER.png */; };
+		4163E96116B2D57500378B77 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4163E96016B2D57500378B77 /* CardCell.m */; };
 		4179820C16AB047F00349ABA /* GetXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4179820B16AB047F00349ABA /* GetXML.m */; };
 		4179825616AB266000349ABA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4179825516AB266000349ABA /* libxml2.dylib */; };
 		4179825716AB2ECA00349ABA /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4179823216AB24DE00349ABA /* CXMLDocument_CreationExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -79,6 +80,8 @@
 		412AA6CA16AF014D00173714 /* MASTER_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MASTER_old.png; sourceTree = "<group>"; };
 		412AA6CC16AF015500173714 /* VISA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISA.png; sourceTree = "<group>"; };
 		412AA6CE16AF0C4D00173714 /* MASTER.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MASTER.png; sourceTree = "<group>"; };
+		4163E95F16B2D57500378B77 /* CardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
+		4163E96016B2D57500378B77 /* CardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCell.m; sourceTree = "<group>"; };
 		4179820A16AB047F00349ABA /* GetXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetXML.h; sourceTree = "<group>"; };
 		4179820B16AB047F00349ABA /* GetXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetXML.m; sourceTree = "<group>"; };
 		4179823116AB24DE00349ABA /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */,
 				4196EC9016B21F96005F86E4 /* ReportCell.h */,
 				4196EC9116B21F96005F86E4 /* ReportCell.m */,
+				4163E95F16B2D57500378B77 /* CardCell.h */,
+				4163E96016B2D57500378B77 /* CardCell.m */,
 			);
 			name = "iPhone View Controllers";
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				4196EC8C16B213E7005F86E4 /* GetPurchasesList.m in Sources */,
 				4196EC8F16B21866005F86E4 /* ReportControllerViewController.m in Sources */,
 				4196EC9216B21F96005F86E4 /* ReportCell.m in Sources */,
+				4163E96116B2D57500378B77 /* CardCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +470,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XMLTest/XMLTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = "/Developer/SDKs/MacOSX10.7.sdk/usr/include/libxml2/**";
-				"HEADER_SEARCH_PATHS[arch=*]" = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "XMLTest/XMLTest-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

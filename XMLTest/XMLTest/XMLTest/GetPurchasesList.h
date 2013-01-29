@@ -11,6 +11,7 @@
 @interface GetPurchasesList : MTXMLLists
 
 @property IBOutlet NSString *creditCardHolder;
+@property IBOutlet NSString *creditCardID;
 @property IBOutlet NSString *rowLimit;
 @property IBOutlet NSString *orderBy;
 @property IBOutlet NSString *duePeriod;

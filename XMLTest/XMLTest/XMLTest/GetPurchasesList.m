@@ -16,6 +16,7 @@
 @synthesize rowLimit;
 @synthesize orderBy;
 @synthesize duePeriod;
+@synthesize creditCardID;
 
 - (void) loadXML {
     
@@ -30,26 +31,31 @@
     URL = [URL stringByAppendingString:connectionHash];
     
     if (creditCardHolder != nil) {
-        URL = [URL stringByAppendingString:@"username="];
+        URL = [URL stringByAppendingString:@"&username="];
         URL = [URL stringByAppendingString:creditCardHolder];
     }
 
+    if (creditCardID != nil) {
+        URL = [URL stringByAppendingString:@"&credit_card="];
+        URL = [URL stringByAppendingString:creditCardID];
+    }
+
     if (rowLimit != nil) {
-        URL = [URL stringByAppendingString:@"limit="];
+        URL = [URL stringByAppendingString:@"&limit="];
         URL = [URL stringByAppendingString:rowLimit];
     }
     if (orderBy != nil) {
-        URL = [URL stringByAppendingString:@"order_by="];
+        URL = [URL stringByAppendingString:@"&order_by="];
         URL = [URL stringByAppendingString:orderBy];
     }
     if (duePeriod != nil) {
-        URL = [URL stringByAppendingString:@"due_period="];
+        URL = [URL stringByAppendingString:@"&due_period="];
         URL = [URL stringByAppendingString:duePeriod];
     }
     
     NSURL* url = [NSURL URLWithString:URL];
     
-    NSLog(@"GetPurchasesList %@",connectionString);
+    NSLog(@"GetPurchasesList %@",URL);
     
     NSData *data = [[NSData alloc] initWithContentsOfURL:url];
     

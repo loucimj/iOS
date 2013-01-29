@@ -33,7 +33,7 @@
     
     GetCreditCardList *list = [[GetCreditCardList alloc] init];
     
-    list.loadXML;
+    [list loadXML];
 
     tableContent = [[NSMutableArray alloc] initWithArray:list.resultSet copyItems:YES];
 }
@@ -114,16 +114,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if([segue.identifier isEqualToString:@"selectDateSegue"]){
-//        SecondViewController *controller = (SecondViewController *)segue.destinationViewController;
-        /*
-        NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
-        NSUInteger selectedRow = selectedRowIndexPath.row;
-        NSMutableDictionary *selectedData = [tableContent objectAtIndex:selectedRowIndexPath.row];
-        NSLog(@"%d",selectedRow);
-        NSLog(@"%@",controller);
-         //        controller.data = [[NSMutableDictionary alloc] init ];
-        controller.selectedCard = selectedData;
-        */
+
         NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
         NSMutableDictionary *selectedData = [tableContent objectAtIndex:selectedRowIndexPath.row];
         
