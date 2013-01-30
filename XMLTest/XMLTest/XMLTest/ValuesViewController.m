@@ -178,7 +178,7 @@
     }
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"segue.identifier %@",segue.identifier);
+    NSLog(@" ValuesViewController segue.identifier %@",segue.identifier);
     
     if([segue.identifier isEqualToString:@"GoToReportSegue"]){
         NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
@@ -192,8 +192,10 @@
         [temp addEntriesFromDictionary:selectedCard];
         
         NSLog(@"sent %@",temp);
-
-        [segue.destinationViewController performSelector:@selector(setReportParameters:) withObject:temp];
+        //acceder a la primera instancia del tabcontroller
+        [[[segue.destinationViewController childViewControllers] objectAtIndex:0] performSelector:@selector(setReportParameters:) withObject:temp];
+        
+//        [segue.destinationViewController performSelector:@selector(setReportParameters:) withObject:temp];
     }
     
 }

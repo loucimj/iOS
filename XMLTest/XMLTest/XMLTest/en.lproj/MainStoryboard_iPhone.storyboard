@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="jkc-eD-82q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="jkc-eD-82q">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - New Ticket-->
@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qdj-HC-bkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="-514"/>
+            <point key="canvasLocation" x="754" y="-495"/>
         </scene>
         <!--First View Controller - Card Selection-->
         <scene sceneID="11">
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1331" y="169"/>
+            <point key="canvasLocation" x="1323" y="-495"/>
         </scene>
         <!--Second View Controller - Cuando?-->
         <scene sceneID="9ow-iu-XJH">
@@ -188,7 +188,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlx-9s-vgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1876" y="164"/>
+            <point key="canvasLocation" x="1868" y="-500"/>
         </scene>
         <!--What View Controller - Texto-->
         <scene sceneID="ZC7-Hw-AFZ">
@@ -223,7 +223,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xP1-gr-d7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2334" y="169"/>
+            <point key="canvasLocation" x="2326" y="-495"/>
         </scene>
         <!--Values View Controller - Importes-->
         <scene sceneID="YHn-7Y-ejR">
@@ -407,19 +407,34 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="pagos" destination="BJK-er-5Hq" id="NQ6-HU-Gas"/>
                         <outlet property="user" destination="8Ib-Pn-shZ" id="fce-A0-8y0"/>
                         <outlet property="value" destination="OHo-8q-fuO" id="Ty5-8f-Sle"/>
-                        <segue destination="2os-6Z-rpb" kind="modal" identifier="GoToReportSegue" id="9xC-mt-Ud8"/>
+                        <segue destination="EQv-dM-gz9" kind="modal" identifier="GoToReportSegue" id="mL1-nP-fCy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BF9-pb-EHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2816" y="193"/>
+            <point key="canvasLocation" x="2812" y="-500"/>
+        </scene>
+        <!--Navigation Controller - Final Ticket flow-->
+        <scene sceneID="QFd-8c-Z5i">
+            <objects>
+                <navigationController title="Final Ticket flow" definesPresentationContext="YES" id="EQv-dM-gz9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q4f-Gx-SS7">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2os-6Z-rpb" kind="relationship" relationship="rootViewController" id="w3g-ru-PZv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MRd-iu-gC0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775" y="657"/>
         </scene>
         <!--Report Controller View Controller-->
         <scene sceneID="sCf-Pd-tvQ">
             <objects>
                 <tableViewController id="2os-6Z-rpb" customClass="ReportControllerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="66" sectionHeaderHeight="10" sectionFooterHeight="10" id="7b9-BO-3a1">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -492,32 +507,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </tableViewSection>
                             <tableViewSection headerTitle="Como quieres seguir?" id="czo-Vf-K0W">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="0O7-7C-FUG" rowHeight="51" style="IBUITableViewCellStyleDefault" id="skb-jB-ITe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="pLR-kF-ZPW" rowHeight="51" style="IBUITableViewCellStyleDefault" id="PWr-gK-F6d">
                                         <rect key="frame" x="0.0" y="269" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Agregar otro ticket" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0O7-7C-FUG">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <segue destination="rXC-rv-Rjq" kind="modal" identifier="NewTicketSegue" modalTransitionStyle="flipHorizontal" id="hTR-K5-Og3"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="pLR-kF-ZPW" rowHeight="51" style="IBUITableViewCellStyleDefault" id="PWr-gK-F6d">
-                                        <rect key="frame" x="0.0" y="321" width="320" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Ver el estado de la tarjeta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pLR-kF-ZPW">
@@ -530,11 +524,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="z6M-eo-PKh" kind="modal" identifier="ReportSegue" modalTransitionStyle="flipHorizontal" id="CVG-qV-REZ"/>
+                                            <segue destination="z6M-eo-PKh" kind="push" identifier="CardStatusSegue" id="CVG-qV-REZ"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="orV-RU-ueW" rowHeight="51" style="IBUITableViewCellStyleDefault" id="yal-O1-igh">
-                                        <rect key="frame" x="0.0" y="372" width="320" height="52"/>
+                                        <rect key="frame" x="0.0" y="321" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="50"/>
@@ -561,7 +555,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="iME-Wq-fBT">
-                        <barButtonItem key="rightBarButtonItem" title="Otro ticket" id="fUt-x0-LNP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Nuevo Ticket" id="fUt-x0-LNP">
+                            <connections>
+                                <segue destination="rXC-rv-Rjq" kind="modal" identifier="NewTicketSegue" modalTransitionStyle="flipHorizontal" id="VZI-Nm-5c4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -576,14 +574,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOT-Ah-FD2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-382" y="577"/>
+            <point key="canvasLocation" x="1374" y="657"/>
         </scene>
         <!--View Controller - Estado tarjeta-->
         <scene sceneID="FjW-3B-Z7w">
             <objects>
                 <viewController id="aoH-EW-KY8" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q5B-5L-2in">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -591,14 +589,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6a-hm-aTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683" y="978"/>
+            <point key="canvasLocation" x="2531" y="934"/>
         </scene>
         <!--Report Controller View Controller - Ultimos 5 Items-->
         <scene sceneID="oWO-CH-vv2">
             <objects>
                 <tableViewController id="5qf-oa-D2u" customClass="ReportControllerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mpk-Gp-lkQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -621,26 +619,27 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8Z-Bo-uzq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677" y="396"/>
+            <point key="canvasLocation" x="2525" y="352"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qYv-EF-mQy">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="z6M-eo-PKh" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" id="t9U-9s-YTo"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="GAP-7x-azv">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="aoH-EW-KY8" kind="relationship" relationship="viewControllers" id="jaD-V7-Vrx"/>
                         <segue destination="5qf-oa-D2u" kind="relationship" relationship="viewControllers" id="elo-bV-6vk"/>
+                        <segue destination="aoH-EW-KY8" kind="relationship" relationship="viewControllers" id="jaD-V7-Vrx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="va6-zM-yKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="698"/>
+            <point key="canvasLocation" x="1999" y="654"/>
         </scene>
         <!--View Controller - Login-->
         <scene sceneID="448-Gf-gBS">
@@ -671,7 +670,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eI5-t6-fcG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-542" y="-543"/>
+            <point key="canvasLocation" x="-566" y="-33"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="55W-xQ-Opp">
@@ -713,7 +712,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2T-fb-kie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169" y="-525"/>
+            <point key="canvasLocation" x="17" y="-33"/>
         </scene>
         <!--Navigation Controller - Agregar Ticket-->
         <scene sceneID="Cp9-Ss-0H2">
@@ -809,7 +808,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hTR-K5-Og3"/>
-        <segue reference="XeB-zm-nLQ"/>
+        <segue reference="VZI-Nm-5c4"/>
+        <segue reference="MI3-c2-gkP"/>
     </inferredMetricsTieBreakers>
 </document>

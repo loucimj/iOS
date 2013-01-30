@@ -88,10 +88,11 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"segue.identifier %@",segue.identifier);
+    NSLog(@" ReportController segue.identifier %@",segue.identifier);
     
-    if([segue.identifier isEqualToString:@"selectWhatSegue"]){
-
+    if([segue.identifier isEqualToString:@"CardStatusSegue"]){
+        //acceder a la primera instancia del tabcontroller
+        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:0] performSelector:@selector(setReportParameters:) withObject:reportParameters];
         
     }
     
