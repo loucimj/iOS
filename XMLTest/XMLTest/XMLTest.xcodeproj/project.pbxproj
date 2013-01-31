@@ -50,6 +50,8 @@
 		4196EC8C16B213E7005F86E4 /* GetPurchasesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC8B16B213E7005F86E4 /* GetPurchasesList.m */; };
 		4196EC8F16B21866005F86E4 /* ReportControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */; };
 		4196EC9216B21F96005F86E4 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC9116B21F96005F86E4 /* ReportCell.m */; };
+		41F1537616B96D9C006BA11F /* ctrackr.png in Resources */ = {isa = PBXBuildFile; fileRef = 41F1537516B96D9C006BA11F /* ctrackr.png */; };
+		41F1537916B971A7006BA11F /* ListPurchasesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F1537816B971A7006BA11F /* ListPurchasesController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +126,9 @@
 		4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportControllerViewController.m; sourceTree = "<group>"; };
 		4196EC9016B21F96005F86E4 /* ReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCell.h; sourceTree = "<group>"; };
 		4196EC9116B21F96005F86E4 /* ReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCell.m; sourceTree = "<group>"; };
+		41F1537516B96D9C006BA11F /* ctrackr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ctrackr.png; sourceTree = "<group>"; };
+		41F1537716B971A7006BA11F /* ListPurchasesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPurchasesController.h; sourceTree = "<group>"; };
+		41F1537816B971A7006BA11F /* ListPurchasesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPurchasesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +193,7 @@
 		410393BB16A83EF400D8D0CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41F1537516B96D9C006BA11F /* ctrackr.png */,
 				412AA6CA16AF014D00173714 /* MASTER_old.png */,
 				412AA6CE16AF0C4D00173714 /* MASTER.png */,
 				412AA6CC16AF015500173714 /* VISA.png */,
@@ -270,6 +276,8 @@
 				4196EC9116B21F96005F86E4 /* ReportCell.m */,
 				4163E95F16B2D57500378B77 /* CardCell.h */,
 				4163E96016B2D57500378B77 /* CardCell.m */,
+				41F1537716B971A7006BA11F /* ListPurchasesController.h */,
+				41F1537816B971A7006BA11F /* ListPurchasesController.m */,
 			);
 			name = "iPhone View Controllers";
 			sourceTree = "<group>";
@@ -339,6 +347,7 @@
 				412AA6CB16AF014E00173714 /* MASTER_old.png in Resources */,
 				412AA6CD16AF015500173714 /* VISA.png in Resources */,
 				412AA6CF16AF0C4D00173714 /* MASTER.png in Resources */,
+				41F1537616B96D9C006BA11F /* ctrackr.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +383,7 @@
 				4196EC8F16B21866005F86E4 /* ReportControllerViewController.m in Sources */,
 				4196EC9216B21F96005F86E4 /* ReportCell.m in Sources */,
 				4163E96116B2D57500378B77 /* CardCell.m in Sources */,
+				41F1537916B971A7006BA11F /* ListPurchasesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XMLTest/XMLTest-Prefix.pch";
 				HEADER_SEARCH_PATHS = "/Developer/SDKs/MacOSX10.7.sdk/usr/include/libxml2/**";
@@ -476,6 +487,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -484,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XMLTest/XMLTest-Prefix.pch";
 				INFOPLIST_FILE = "XMLTest/XMLTest-Info.plist";

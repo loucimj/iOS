@@ -555,7 +555,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="iME-Wq-fBT">
-                        <barButtonItem key="rightBarButtonItem" title="Nuevo Ticket" id="fUt-x0-LNP">
+                        <barButtonItem key="rightBarButtonItem" title="Agregar otro ticket" id="fUt-x0-LNP">
                             <connections>
                                 <segue destination="rXC-rv-Rjq" kind="modal" identifier="NewTicketSegue" modalTransitionStyle="flipHorizontal" id="VZI-Nm-5c4"/>
                             </connections>
@@ -576,7 +576,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1374" y="657"/>
         </scene>
-        <!--View Controller - Estado tarjeta-->
+        <!--View Controller - Mes en curso-->
         <scene sceneID="FjW-3B-Z7w">
             <objects>
                 <viewController id="aoH-EW-KY8" sceneMemberID="viewController">
@@ -585,29 +585,64 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Estado tarjeta" id="XIV-yd-2kU"/>
+                    <tabBarItem key="tabBarItem" title="Mes en curso" id="XIV-yd-2kU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6a-hm-aTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2531" y="934"/>
         </scene>
-        <!--Report Controller View Controller - Ultimos 5 Items-->
+        <!--List Purchases Controller - Ultimos 5 Items-->
         <scene sceneID="oWO-CH-vv2">
             <objects>
-                <tableViewController id="5qf-oa-D2u" customClass="ReportControllerViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mpk-Gp-lkQ">
+                <tableViewController id="5qf-oa-D2u" customClass="ListPurchasesController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="71" sectionHeaderHeight="22" sectionFooterHeight="22" id="mpk-Gp-lkQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="t9E-RD-nRx">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="71" id="t9E-RD-nRx" customClass="ReportCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="macdonalds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hSd-XU-aLS">
+                                            <rect key="frame" x="20" y="10" width="194" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$3.400" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c4c-W4-Inh">
+                                            <rect key="frame" x="192" y="10" width="108" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eMJ-nJ-k0U">
+                                            <rect key="frame" x="20" y="34" width="175" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.3967391253" green="0.3967391253" blue="0.3967391253" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PWY-Fg-yMT">
+                                            <rect key="frame" x="125" y="34" width="175" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.3967391253" green="0.3967391253" blue="0.3967391253" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="cuotas" destination="PWY-Fg-yMT" id="QHV-3u-5ZB"/>
+                                    <outlet property="fecha" destination="hSd-XU-aLS" id="vPt-y2-nli"/>
+                                    <outlet property="valor" destination="c4c-W4-Inh" id="oVg-mk-g8k"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -650,9 +685,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uak-zL-Cev">
-                                <rect key="frame" x="132" y="198" width="65" height="44"/>
+                                <rect key="frame" x="25" y="233" width="275" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Entrar">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -663,6 +699,22 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segue destination="bGM-D2-ABr" kind="modal" modalTransitionStyle="flipHorizontal" id="MI3-c2-gkP"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ctrackr.png" id="mnd-JH-eoL">
+                                <rect key="frame" x="0.0" y="41" width="172" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" clearButtonMode="unlessEditing" id="J80-4T-7RQ">
+                                <rect key="frame" x="25" y="112" width="275" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" id="pex-wp-5vv">
+                                <rect key="frame" x="25" y="155" width="275" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -712,7 +764,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2T-fb-kie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17" y="-33"/>
+            <point key="canvasLocation" x="8" y="-33"/>
         </scene>
         <!--Navigation Controller - Agregar Ticket-->
         <scene sceneID="Cp9-Ss-0H2">
@@ -737,71 +789,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </scenes>
     <resources>
         <image name="AMEX.png" width="56" height="35"/>
+        <image name="ctrackr.png" width="200" height="80"/>
         <image name="first" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="CardCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bankName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardNumber" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="holderName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ReportControllerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportControllerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="selectMenu:"/>
-                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="dateSelection" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ticketText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ticketValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SecondViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="dateSelection" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ValuesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ValuesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonSave:"/>
-                <relationship kind="action" name="textEdited:"/>
-                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="currency" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="dateSelection" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="leyenda" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loadByTicket" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="pagos" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="value" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="WhatViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WhatViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="ticketText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
