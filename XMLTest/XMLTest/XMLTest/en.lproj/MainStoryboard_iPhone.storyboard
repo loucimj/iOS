@@ -429,10 +429,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="775" y="657"/>
         </scene>
-        <!--Report Controller View Controller-->
+        <!--Report Controller View Controller - Ticket-->
         <scene sceneID="sCf-Pd-tvQ">
             <objects>
-                <tableViewController id="2os-6Z-rpb" customClass="ReportControllerViewController" sceneMemberID="viewController">
+                <tableViewController title="Ticket" id="2os-6Z-rpb" customClass="ReportControllerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="66" sectionHeaderHeight="10" sectionFooterHeight="10" id="7b9-BO-3a1">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -554,7 +554,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="iME-Wq-fBT">
+                    <navigationItem key="navigationItem" title="Ticket" id="iME-Wq-fBT">
                         <barButtonItem key="rightBarButtonItem" title="Agregar otro ticket" id="fUt-x0-LNP">
                             <connections>
                                 <segue destination="rXC-rv-Rjq" kind="modal" identifier="NewTicketSegue" modalTransitionStyle="flipHorizontal" id="VZI-Nm-5c4"/>
@@ -591,10 +591,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="2531" y="934"/>
         </scene>
-        <!--List Purchases Controller - Ultimos 5 Items-->
+        <!--List Purchases Controller - Ulitmos 10 items-->
         <scene sceneID="oWO-CH-vv2">
             <objects>
-                <tableViewController id="5qf-oa-D2u" customClass="ListPurchasesController" sceneMemberID="viewController">
+                <tableViewController title="Ulitmos 10 items" id="5qf-oa-D2u" customClass="ListPurchasesController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="71" sectionHeaderHeight="22" sectionFooterHeight="22" id="mpk-Gp-lkQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -639,8 +639,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <outlet property="cuotas" destination="PWY-Fg-yMT" id="QHV-3u-5ZB"/>
-                                    <outlet property="fecha" destination="hSd-XU-aLS" id="vPt-y2-nli"/>
+                                    <outlet property="cuotas" destination="PWY-Fg-yMT" id="Sdd-Kl-fKa"/>
+                                    <outlet property="descripcion" destination="hSd-XU-aLS" id="wPs-2a-JLu"/>
+                                    <outlet property="fecha" destination="eMJ-nJ-k0U" id="fwl-C7-TTa"/>
                                     <outlet property="valor" destination="c4c-W4-Inh" id="oVg-mk-g8k"/>
                                 </connections>
                             </tableViewCell>
@@ -653,6 +654,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <tabBarItem key="tabBarItem" title="Ultimos 5 Items" id="Rsq-Oh-yxr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8Z-Bo-uzq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="whf-CI-Im6">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Ultimos 10 tickets" id="Lw4-Yc-jGW"/>
+                    </items>
+                </navigationBar>
             </objects>
             <point key="canvasLocation" x="2525" y="352"/>
         </scene>
@@ -792,6 +800,81 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="ctrackr.png" width="200" height="80"/>
         <image name="first" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="CardCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bankName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cardImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cardNumber" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="holderName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ListPurchasesController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListPurchasesController.h"/>
+        </class>
+        <class className="ReportCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cuotas" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descripcion" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fecha" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="valor" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ReportControllerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportControllerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectMenu:"/>
+                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dateSelection" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ticketText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ticketValue" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SecondViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dateSelection" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ValuesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ValuesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonSave:"/>
+                <relationship kind="action" name="textEdited:"/>
+                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="currency" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="dateSelection" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="leyenda" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadByTicket" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="pagos" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="value" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="WhatViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WhatViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ticketText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

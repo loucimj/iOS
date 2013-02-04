@@ -58,14 +58,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [tableContent count];
 }
@@ -83,8 +83,33 @@
     NSMutableDictionary *dic = [tableContent objectAtIndex:indexPath.row];
   
     cell.descripcion.text = [dic objectForKey:@"description"];
-    cell.valor.text = [dic objectForKey:@"value"];
-    cell.cuotas.text = [dic objectForKey:@"cuotas"];
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *x = [f numberFromString:[dic objectForKey:@"value"]];
+    [f setNumberStyle:NSNumberFormatterCurrencyStyle];
+    cell.valor.text = [f stringFromNumber:x];
+    
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    x = [f numberFromString:[dic objectForKey:@"payments"]];
+    if ([x integerValue] > 1) {
+        cell.cuotas.text = [dic objectForKey:@"payments"];
+        cell.cuotas.text  = [cell.cuotas.text stringByAppendingString:@" cuotas de "];
+        
+        float y;
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        
+        NSNumber *numberValue=[f numberFromString:[dic objectForKey:@"value"]];
+        NSNumber *cuotas = [f numberFromString:[dic objectForKey:@"payments"]];
+        NSNumber *resultado = [[NSNumber alloc] init];
+        
+        y = [numberValue floatValue] / [cuotas floatValue];
+        resultado = [NSNumber numberWithFloat:y];
+
+        [f setNumberStyle:NSNumberFormatterCurrencyStyle];
+
+        cell.cuotas.text  = [cell.cuotas.text stringByAppendingString:[f stringFromNumber:resultado]];
+    }
     cell.fecha.text = [dic objectForKey:@"date"];
     
     return cell;
