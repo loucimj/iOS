@@ -576,21 +576,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1374" y="657"/>
         </scene>
-        <!--View Controller - Mes en curso-->
-        <scene sceneID="FjW-3B-Z7w">
-            <objects>
-                <viewController id="aoH-EW-KY8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Q5B-5L-2in">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Mes en curso" id="XIV-yd-2kU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e6a-hm-aTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2531" y="934"/>
-        </scene>
         <!--List Purchases Controller - Ulitmos 10 items-->
         <scene sceneID="oWO-CH-vv2">
             <objects>
@@ -662,7 +647,37 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </items>
                 </navigationBar>
             </objects>
-            <point key="canvasLocation" x="2525" y="352"/>
+            <point key="canvasLocation" x="2531" y="340"/>
+        </scene>
+        <!--List Purchases Controller - Ultimo mes-->
+        <scene sceneID="Hip-ff-8a4">
+            <objects>
+                <tableViewController id="9xv-UC-EYh" customClass="ListPurchasesController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="acK-75-gp8">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="eXh-1n-dJM">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9xv-UC-EYh" id="mQD-5Z-NLe"/>
+                            <outlet property="delegate" destination="9xv-UC-EYh" id="KB9-wV-pZc"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Ultimo mes" id="fYR-ir-JU8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90y-FJ-VD2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2532" y="910"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qYv-EF-mQy">
@@ -677,7 +692,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </tabBar>
                     <connections>
                         <segue destination="5qf-oa-D2u" kind="relationship" relationship="viewControllers" id="elo-bV-6vk"/>
-                        <segue destination="aoH-EW-KY8" kind="relationship" relationship="viewControllers" id="jaD-V7-Vrx"/>
+                        <segue destination="9xv-UC-EYh" kind="relationship" relationship="viewControllers" id="ONo-QB-6U4"/>
+                        <segue destination="Uzq-zj-jLK" kind="relationship" relationship="viewControllers" id="5EP-ov-Dz5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="va6-zM-yKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -772,7 +788,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2T-fb-kie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8" y="-33"/>
+            <point key="canvasLocation" x="21" y="-33"/>
         </scene>
         <!--Navigation Controller - Agregar Ticket-->
         <scene sceneID="Cp9-Ss-0H2">
@@ -794,87 +810,42 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="-1384" y="-105"/>
         </scene>
+        <!--List Purchases Controller - Proximo mes-->
+        <scene sceneID="ePn-eC-8jY">
+            <objects>
+                <tableViewController id="Uzq-zj-jLK" customClass="ListPurchasesController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3EX-Nt-SSr">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="FFh-kK-HMn">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Uzq-zj-jLK" id="mcC-hJ-LE0"/>
+                            <outlet property="delegate" destination="Uzq-zj-jLK" id="bOD-lT-MRO"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Proximo mes" id="VP5-uc-Wu2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y8C-QD-edf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2531" y="1491"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AMEX.png" width="56" height="35"/>
         <image name="ctrackr.png" width="200" height="80"/>
         <image name="first" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="CardCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bankName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cardImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cardNumber" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="holderName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ListPurchasesController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListPurchasesController.h"/>
-        </class>
-        <class className="ReportCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cuotas" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descripcion" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fecha" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="valor" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ReportControllerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportControllerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="selectMenu:"/>
-                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="dateSelection" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ticketText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="ticketValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SecondViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="dateSelection" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ValuesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ValuesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonSave:"/>
-                <relationship kind="action" name="textEdited:"/>
-                <relationship kind="outlet" name="bank" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="card" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="creditCardImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="currency" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="dateSelection" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="leyenda" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="loadByTicket" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="pagos" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="user" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="value" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="WhatViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WhatViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="ticketText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

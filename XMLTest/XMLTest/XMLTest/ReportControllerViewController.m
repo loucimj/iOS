@@ -92,8 +92,16 @@
     
     if([segue.identifier isEqualToString:@"CardStatusSegue"]){
         //acceder a la primera instancia del tabcontroller
-        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:0] performSelector:@selector(setReportParameters:) withObject:reportParameters];
         
+        [reportParameters setObject:@"10" forKey:@"rowlimit"];
+        [reportParameters setObject:@"TIMESTAMP" forKey:@"orderBy"];
+        
+        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:0] performSelector:@selector(setReportParameters:) withObject:reportParameters];
+
+        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:1] performSelector:@selector(setReportParameters:) withObject:reportParameters];
+
+        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:2] performSelector:@selector(setReportParameters:) withObject:reportParameters];
+
     }
     
 }

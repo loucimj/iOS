@@ -40,8 +40,11 @@
     GetPurchasesList *purchases = [[GetPurchasesList alloc] init];
     
     purchases.creditCardID = [reportParameters objectForKey:@"cc_id"];
-    purchases.orderBy = @"TIMESTAMP";
-    purchases.rowLimit = @"10";
+    purchases.orderBy = [reportParameters objectForKey:@"orderBy"];
+    purchases.rowLimit = [reportParameters objectForKey:@"rowLimit"];
+    
+//    purchases.orderBy = @"TIMESTAMP";
+//    purchases.rowLimit = @"10";
     
     [purchases loadXML];
     
