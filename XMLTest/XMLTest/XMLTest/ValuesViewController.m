@@ -183,16 +183,15 @@
     if([segue.identifier isEqualToString:@"GoToReportSegue"]){
         NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
         
-
         
-        [temp setObject:@"5" forKey:@"rowLimit"];
         [temp setObject:[selectedCard objectForKey:@"cc_id"] forKey:@"creditCardID"];
-        [temp setObject:@"TIMESTAMP" forKey:@"orderBy"];
 
         [temp addEntriesFromDictionary:selectedCard];
         
         NSLog(@"sent %@",temp);
         //acceder a la primera instancia del tabcontroller
+
+        
         [[[segue.destinationViewController childViewControllers] objectAtIndex:0] performSelector:@selector(setReportParameters:) withObject:temp];
         
 //        [segue.destinationViewController performSelector:@selector(setReportParameters:) withObject:temp];

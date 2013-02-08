@@ -39,9 +39,14 @@
     
     GetPurchasesList *purchases = [[GetPurchasesList alloc] init];
     
+    NSLog(@"ListPurchases %@",reportParameters);
+    
+    
     purchases.creditCardID = [reportParameters objectForKey:@"cc_id"];
     purchases.orderBy = [reportParameters objectForKey:@"orderBy"];
     purchases.rowLimit = [reportParameters objectForKey:@"rowLimit"];
+    purchases.duePeriod = [reportParameters objectForKey:@"duePeriod"];
+    purchases.creditCardHolder = [reportParameters objectForKey:@"cardHolder"];
     
 //    purchases.orderBy = @"TIMESTAMP";
 //    purchases.rowLimit = @"10";
@@ -112,6 +117,8 @@
         [f setNumberStyle:NSNumberFormatterCurrencyStyle];
 
         cell.cuotas.text  = [cell.cuotas.text stringByAppendingString:[f stringFromNumber:resultado]];
+    } else {
+        cell.cuotas.text = @"";
     }
     cell.fecha.text = [dic objectForKey:@"date"];
     
