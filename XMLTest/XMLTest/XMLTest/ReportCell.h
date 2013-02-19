@@ -14,5 +14,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *valor;
 @property (nonatomic, weak) IBOutlet UILabel *fecha;
 @property (nonatomic, weak) IBOutlet UILabel *cuotas;
+@property (nonatomic, weak) IBOutlet UILabel *cuotasProgress;
+@property (nonatomic, weak) IBOutlet UILabel *valorAPagar;
+
 
 @end

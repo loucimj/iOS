@@ -1,24 +1,20 @@
 //
-//  GetCreditCardList.m
+//  GetCreditCardStatus.m
 //  XMLTest
 //
-//  Created by Javier Loucim on 23/01/13.
+//  Created by Javi on 18/02/13.
 //  Copyright (c) 2013 Javi. All rights reserved.
 //
 
-#import "GetCreditCardList.h"
-#import "TouchXML.h"
+#import "GetCreditCardStatus.h"
 
-@implementation GetCreditCardList
+@implementation GetCreditCardStatus
 
-@synthesize creditCardHolder;
 @synthesize resultSet;
+@synthesize username;
+@synthesize bankID;
+@synthesize duePeriod;
 
-- (id) init
-{
-    self = [super init];
-    return self;
-}
 - (void) loadXML {
     
     
@@ -27,17 +23,27 @@
     NSString *URL = [NSString alloc];
     URL = connectionString;
     
-    URL = [URL stringByAppendingString:@"views/list_cards.php?"];
+    URL = [URL stringByAppendingString:@"views/list_cards_status.php?"];
     URL = [URL stringByAppendingString:@"cHash="];
     URL = [URL stringByAppendingString:connectionHash];
     
-    if (creditCardHolder != nil) {
-        URL = [URL stringByAppendingString:@"username="];
-        URL = [URL stringByAppendingString:creditCardHolder];
+    if (username != nil) {
+        URL = [URL stringByAppendingString:@"&username="];
+        URL = [URL stringByAppendingString:username];
     }
+    
+    if (bankID != nil) {
+        URL = [URL stringByAppendingString:@"&bank_id="];
+        URL = [URL stringByAppendingString:bankID];
+    }
+    if ( duePeriod != nil) {
+        URL = [URL stringByAppendingString:@"&due_period="];
+        URL = [URL stringByAppendingString:duePeriod];
+    }
+    
     NSURL* url = [NSURL URLWithString:URL];
-
-    NSLog(@"GetCreditCardList %@",connectionString);
+    
+    NSLog(@"GetCreditCardStatus %@",URL);
     
     NSData *data = [[NSData alloc] initWithContentsOfURL:url];
     
@@ -45,9 +51,9 @@
     
     NSArray *nodes = NULL;
     
-    nodes = [doc nodesForXPath:@"/credit_cards/credit_card" error:nil];
-    
+    nodes = [doc nodesForXPath:@"/status/credit_cards/credit_card" error:nil];
     NSString *tmpStr = [[NSString alloc] init];
+    
     //copio todos los items dentro de un nodo
     for (CXMLElement *node in nodes) {
         //armo el item
@@ -55,6 +61,7 @@
         for(int counter = 0; counter < [node childCount]; counter++) {
             //  common procedure: dictionary with keys/values from XML node
             tmpStr = [[node childAtIndex:counter] stringValue];
+            
             if (tmpStr != nil && tmpStr.length >0) {
                 [item setObject:[[node childAtIndex:counter] stringValue] forKey:[[node childAtIndex:counter] name]];
             } else {
@@ -67,6 +74,8 @@
     
     resultSet = [[NSMutableArray alloc] initWithArray:res copyItems:YES];
     
-    NSLog(@"GetCreditCardList %@",resultSet);
+    NSLog(@"GetCreditCardStatus Resultset %@",resultSet);
 }
+
+
 @end

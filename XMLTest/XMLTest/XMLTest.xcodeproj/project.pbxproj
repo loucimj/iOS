@@ -28,6 +28,11 @@
 		412AA6CB16AF014E00173714 /* MASTER_old.png in Resources */ = {isa = PBXBuildFile; fileRef = 412AA6CA16AF014D00173714 /* MASTER_old.png */; };
 		412AA6CD16AF015500173714 /* VISA.png in Resources */ = {isa = PBXBuildFile; fileRef = 412AA6CC16AF015500173714 /* VISA.png */; };
 		412AA6CF16AF0C4D00173714 /* MASTER.png in Resources */ = {isa = PBXBuildFile; fileRef = 412AA6CE16AF0C4D00173714 /* MASTER.png */; };
+		4139E38316CFDB4D00483A3E /* GetOverviewStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4139E38216CFDB4D00483A3E /* GetOverviewStatus.m */; };
+		4139E38A16D068AC00483A3E /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4139E38916D068AB00483A3E /* MainMenuViewController.m */; };
+		4139E38D16D272F900483A3E /* BankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4139E38C16D272F900483A3E /* BankCell.m */; };
+		4139E39016D2B9A200483A3E /* GetCreditCardStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4139E38F16D2B9A100483A3E /* GetCreditCardStatus.m */; };
+		4139E39316D2D9D900483A3E /* CardStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4139E39216D2D9D800483A3E /* CardStatusViewController.m */; };
 		4163E96116B2D57500378B77 /* CardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4163E96016B2D57500378B77 /* CardCell.m */; };
 		4179820C16AB047F00349ABA /* GetXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4179820B16AB047F00349ABA /* GetXML.m */; };
 		4179825616AB266000349ABA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4179825516AB266000349ABA /* libxml2.dylib */; };
@@ -82,6 +87,16 @@
 		412AA6CA16AF014D00173714 /* MASTER_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MASTER_old.png; sourceTree = "<group>"; };
 		412AA6CC16AF015500173714 /* VISA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VISA.png; sourceTree = "<group>"; };
 		412AA6CE16AF0C4D00173714 /* MASTER.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MASTER.png; sourceTree = "<group>"; };
+		4139E38116CFDB4D00483A3E /* GetOverviewStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOverviewStatus.h; sourceTree = "<group>"; };
+		4139E38216CFDB4D00483A3E /* GetOverviewStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOverviewStatus.m; sourceTree = "<group>"; };
+		4139E38816D068AB00483A3E /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		4139E38916D068AB00483A3E /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		4139E38B16D272F900483A3E /* BankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCell.h; sourceTree = "<group>"; };
+		4139E38C16D272F900483A3E /* BankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCell.m; sourceTree = "<group>"; };
+		4139E38E16D2B9A100483A3E /* GetCreditCardStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCreditCardStatus.h; sourceTree = "<group>"; };
+		4139E38F16D2B9A100483A3E /* GetCreditCardStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCreditCardStatus.m; sourceTree = "<group>"; };
+		4139E39116D2D9D800483A3E /* CardStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardStatusViewController.h; sourceTree = "<group>"; };
+		4139E39216D2D9D800483A3E /* CardStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardStatusViewController.m; sourceTree = "<group>"; };
 		4163E95F16B2D57500378B77 /* CardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
 		4163E96016B2D57500378B77 /* CardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardCell.m; sourceTree = "<group>"; };
 		4179820A16AB047F00349ABA /* GetXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetXML.h; sourceTree = "<group>"; };
@@ -177,6 +192,8 @@
 		410393BA16A83EF400D8D0CC /* XMLTest */ = {
 			isa = PBXGroup;
 			children = (
+				410393CC16A83EF400D8D0CC /* MainStoryboard_iPhone.storyboard */,
+				4139E38716D0625F00483A3E /* Cell */,
 				4196EC5F16AFF530005F86E4 /* iPhone View Controllers */,
 				4179821B16AB245400349ABA /* XMLParser */,
 				4179820416AAF59E00349ABA /* business */,
@@ -213,6 +230,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4139E38716D0625F00483A3E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4196EC9016B21F96005F86E4 /* ReportCell.h */,
+				4196EC9116B21F96005F86E4 /* ReportCell.m */,
+				4163E95F16B2D57500378B77 /* CardCell.h */,
+				4163E96016B2D57500378B77 /* CardCell.m */,
+				4139E38B16D272F900483A3E /* BankCell.h */,
+				4139E38C16D272F900483A3E /* BankCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		4179820416AAF59E00349ABA /* business */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +254,10 @@
 				4196EC6A16B04A00005F86E4 /* GetCreditCardList.m */,
 				4196EC8A16B213E7005F86E4 /* GetPurchasesList.h */,
 				4196EC8B16B213E7005F86E4 /* GetPurchasesList.m */,
+				4139E38116CFDB4D00483A3E /* GetOverviewStatus.h */,
+				4139E38216CFDB4D00483A3E /* GetOverviewStatus.m */,
+				4139E38E16D2B9A100483A3E /* GetCreditCardStatus.h */,
+				4139E38F16D2B9A100483A3E /* GetCreditCardStatus.m */,
 			);
 			name = business;
 			sourceTree = "<group>";
@@ -261,7 +295,8 @@
 		4196EC5F16AFF530005F86E4 /* iPhone View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				410393CC16A83EF400D8D0CC /* MainStoryboard_iPhone.storyboard */,
+				4139E38816D068AB00483A3E /* MainMenuViewController.h */,
+				4139E38916D068AB00483A3E /* MainMenuViewController.m */,
 				410393D216A83EF400D8D0CC /* FirstViewController.h */,
 				410393D316A83EF400D8D0CC /* FirstViewController.m */,
 				410393D916A83EF400D8D0CC /* SecondViewController.h */,
@@ -272,12 +307,10 @@
 				4196EC6416B00824005F86E4 /* ValuesViewController.m */,
 				4196EC8D16B21866005F86E4 /* ReportControllerViewController.h */,
 				4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */,
-				4196EC9016B21F96005F86E4 /* ReportCell.h */,
-				4196EC9116B21F96005F86E4 /* ReportCell.m */,
-				4163E95F16B2D57500378B77 /* CardCell.h */,
-				4163E96016B2D57500378B77 /* CardCell.m */,
 				41F1537716B971A7006BA11F /* ListPurchasesController.h */,
 				41F1537816B971A7006BA11F /* ListPurchasesController.m */,
+				4139E39116D2D9D800483A3E /* CardStatusViewController.h */,
+				4139E39216D2D9D800483A3E /* CardStatusViewController.m */,
 			);
 			name = "iPhone View Controllers";
 			sourceTree = "<group>";
@@ -384,6 +417,11 @@
 				4196EC9216B21F96005F86E4 /* ReportCell.m in Sources */,
 				4163E96116B2D57500378B77 /* CardCell.m in Sources */,
 				41F1537916B971A7006BA11F /* ListPurchasesController.m in Sources */,
+				4139E38316CFDB4D00483A3E /* GetOverviewStatus.m in Sources */,
+				4139E38A16D068AC00483A3E /* MainMenuViewController.m in Sources */,
+				4139E38D16D272F900483A3E /* BankCell.m in Sources */,
+				4139E39016D2B9A200483A3E /* GetCreditCardStatus.m in Sources */,
+				4139E39316D2D9D900483A3E /* CardStatusViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

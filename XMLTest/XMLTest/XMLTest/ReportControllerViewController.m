@@ -93,6 +93,8 @@
     if([segue.identifier isEqualToString:@"CardStatusSegue"]){
         //acceder a la primera instancia del tabcontroller
         NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *temp2 = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *temp3 = [[NSMutableDictionary alloc] init];
 
         
         [temp setObject:@"10" forKey:@"rowLimit"];
@@ -107,17 +109,15 @@
         dateValue = [reportParameters objectForKey:@"date"];
         [formatter setDateFormat:@"YYYY-MM"];
         
-        temp = NULL;
+        //temp = NULL;
 
-        [temp setObject:@"" forKey:@"rowLimit"];
-        [temp setObject:@"" forKey:@"orderBy"];
-        [temp setObject:@"duePeriod" forKey:[formatter stringFromDate:dateValue ]];
-        [temp addEntriesFromDictionary:reportParameters];
+        [temp2 setObject: [formatter stringFromDate:dateValue ] forKey:@"duePeriod"];
+        [temp2 addEntriesFromDictionary:reportParameters];
 
-        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:1] performSelector:@selector(setReportParameters:) withObject:reportParameters];
-
-        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:2] performSelector:@selector(setReportParameters:) withObject:reportParameters];
-
+        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:1] performSelector:@selector(setReportParameters:) withObject:temp2];
+/*
+        [[[segue.destinationViewController customizableViewControllers] objectAtIndex:2] performSelector:@selector(setReportParameters:) withObject:temp3];
+*/
     }
     
 }

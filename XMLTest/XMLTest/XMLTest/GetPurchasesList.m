@@ -64,6 +64,7 @@
     NSArray *nodes = NULL;
     
     nodes = [doc nodesForXPath:@"/purchases/purchase" error:nil];
+    NSString *tmpStr = [[NSString alloc] init];
     
     //copio todos los items dentro de un nodo
     for (CXMLElement *node in nodes) {
@@ -71,7 +72,13 @@
         NSMutableDictionary *item = [[NSMutableDictionary alloc] init];
         for(int counter = 0; counter < [node childCount]; counter++) {
             //  common procedure: dictionary with keys/values from XML node
-            [item setObject:[[node childAtIndex:counter] stringValue] forKey:[[node childAtIndex:counter] name]];
+            tmpStr = [[node childAtIndex:counter] stringValue];
+            
+            if (tmpStr != nil && tmpStr.length >0) {
+                [item setObject:[[node childAtIndex:counter] stringValue] forKey:[[node childAtIndex:counter] name]];
+            } else {
+                [item setObject:@"" forKey:[[node childAtIndex:counter] name]];
+            }
         }
         
         [res addObject:item];
@@ -79,7 +86,7 @@
     
     resultSet = [[NSMutableArray alloc] initWithArray:res copyItems:YES];
     
-    NSLog(@"GetPurchasesList %@",resultSet);
+    NSLog(@"GetPurchasesList Resultset %@",resultSet);
 }
 
 @end

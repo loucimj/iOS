@@ -39,6 +39,7 @@
     
     GetPurchasesList *purchases = [[GetPurchasesList alloc] init];
     
+    NSLog(@"--------------------------------------------------------------------");
     NSLog(@"ListPurchases %@",reportParameters);
     
     
@@ -47,6 +48,7 @@
     purchases.rowLimit = [reportParameters objectForKey:@"rowLimit"];
     purchases.duePeriod = [reportParameters objectForKey:@"duePeriod"];
     purchases.creditCardHolder = [reportParameters objectForKey:@"cardHolder"];
+    
     
 //    purchases.orderBy = @"TIMESTAMP";
 //    purchases.rowLimit = @"10";
@@ -94,9 +96,15 @@
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
-    NSNumber *x = [f numberFromString:[dic objectForKey:@"value"]];
+    NSNumber *x = [f numberFromString:[dic objectForKey:@"payment_value"]];
+    [f setNumberStyle:NSNumberFormatterCurrencyStyle];
+    cell.valorAPagar.text = [f stringFromNumber:x];
+
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    x = [f numberFromString:[dic objectForKey:@"value"]];
     [f setNumberStyle:NSNumberFormatterCurrencyStyle];
     cell.valor.text = [f stringFromNumber:x];
+    
     
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     x = [f numberFromString:[dic objectForKey:@"payments"]];
@@ -117,8 +125,23 @@
         [f setNumberStyle:NSNumberFormatterCurrencyStyle];
 
         cell.cuotas.text  = [cell.cuotas.text stringByAppendingString:[f stringFromNumber:resultado]];
+        
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *cuotasPagadas = [[NSNumber alloc] init];
+        int remaining = ([cuotas intValue] - [[f numberFromString:[dic objectForKey:@"remaining_payments"]] intValue]);
+        
+        cuotasPagadas = [NSNumber numberWithInt:remaining];
+        NSString *cuotasText = [[NSString alloc] init];
+        cuotasText = [f stringFromNumber:cuotasPagadas];
+        cuotasText = [cuotasText stringByAppendingString:@"/"];
+        cuotasText = [cuotasText stringByAppendingString:[f stringFromNumber:cuotas]];
+        
+//        NSLog(@"%@: %@ - %@",[dic objectForKey:@"remaining_payments"],cuotasPagadas,cuotasText);
+        
+        cell.cuotasProgress.text = cuotasText;
     } else {
         cell.cuotas.text = @"";
+        cell.cuotasProgress.text = @"";
     }
     cell.fecha.text = [dic objectForKey:@"date"];
     

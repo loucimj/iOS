@@ -14,5 +14,5 @@
 @property (nonatomic, weak) IBOutlet UILabel *cardNumber;
 @property (nonatomic, weak) IBOutlet UILabel *bankName;
 @property (nonatomic, weak) IBOutlet UILabel *holderName;
-
+@property (nonatomic, weak) IBOutlet UILabel *value;
 @end

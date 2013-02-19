@@ -17,6 +17,7 @@
 {
     self = [super init];
     connectionString = @"http://mt.sdev.com.ar/php/";
+//    connectionString = @"http://localhost:8080/php/";
     connectionHash = @"nada";
     return self;
 }
