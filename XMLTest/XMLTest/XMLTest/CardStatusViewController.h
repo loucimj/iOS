@@ -12,6 +12,8 @@
     NSMutableArray *tableContent;
 }
 
+@property IBOutlet UILabel *bankName;
+@property IBOutlet UILabel *periodText;
 @property (nonatomic,strong) NSMutableDictionary *reportParameters;
 
 @end

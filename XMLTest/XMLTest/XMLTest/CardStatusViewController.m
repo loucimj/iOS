@@ -17,6 +17,8 @@
 @implementation CardStatusViewController
 
 @synthesize reportParameters;
+@synthesize bankName;
+@synthesize periodText;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,6 +39,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
    
+    bankName.text=[reportParameters objectForKey:@"bank_name"];
+    periodText.text=[reportParameters objectForKey:@"due_period"];
+    
     GetCreditCardStatus *list = [[GetCreditCardStatus alloc] init];
     
     list.bankID = [reportParameters objectForKey:@"bank_id"];
@@ -87,9 +92,9 @@
     [f setNumberStyle:NSNumberFormatterCurrencyStyle];
     cell.value.text = [f stringFromNumber:x];
     
-    cell.cardNumber.text = [dic objectForKey:@"card_type"];
-    [cell.cardNumber.text stringByAppendingString:@" "];
-    [cell.cardNumber.text stringByAppendingString:[dic objectForKey:@"cc_number"]];
+    cell.cardNumber.text = [dic objectForKey:@"cc_number"];
+//    [cell.cardNumber.text stringByAppendingString:@" "];
+//    [cell.cardNumber.text stringByAppendingString:[dic objectForKey:@"cc_number"]];
     
     cell.holderName.text = [dic objectForKey:@"cc_holder"];
     
@@ -159,4 +164,26 @@
      */
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"CardStatusViewController segue.identifier %@",segue.identifier);
+    
+    if([segue.identifier isEqualToString:@"ViewPurchasesSegue"]){
+        
+        NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+        NSMutableDictionary *selectedData = [tableContent objectAtIndex:selectedRowIndexPath.row];
+        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] init];
+        
+        
+        [tmp setObject:[reportParameters objectForKey:@"due_period"] forKey:@"duePeriod"];
+        [tmp setObject:bankName.text forKey:@"bank_name"];
+        [tmp setObject:[selectedData objectForKey:@"cc_number"] forKey:@"card_number"];
+        [tmp setObject:[selectedData objectForKey:@"cc_holder"] forKey:@"cc_holder"];
+        [tmp setObject:[selectedData objectForKey:@"card_type"] forKey:@"card_type"];
+        [tmp setObject:[selectedData objectForKey:@"cc_id"] forKey:@"cc_id"];
+        
+        [segue.destinationViewController performSelector:@selector(setReportParameters:)  withObject:tmp];
+        
+    }
+    
+}
 @end

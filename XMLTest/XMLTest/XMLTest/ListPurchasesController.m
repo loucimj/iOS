@@ -49,9 +49,21 @@
     purchases.duePeriod = [reportParameters objectForKey:@"duePeriod"];
     purchases.creditCardHolder = [reportParameters objectForKey:@"cardHolder"];
     
+    bankName.text = [reportParameters objectForKey:@"bank_name"];
+    periodText.text = [reportParameters objectForKey:@"duePeriod"];
+    cardNumber.text = [reportParameters objectForKey:@"card_number"];
+    username.text = [reportParameters objectForKey:@"cc_holder"];
     
+    NSString *imageString = [[NSString alloc] init];
+    
+    imageString = [imageString stringByAppendingString:[reportParameters objectForKey:@"card_type"]];
+    imageString = [imageString stringByAppendingString:@".png"];
+    
+    cardImage.image = [UIImage imageNamed:imageString];
 //    purchases.orderBy = @"TIMESTAMP";
 //    purchases.rowLimit = @"10";
+    
+    
     
     [purchases loadXML];
     

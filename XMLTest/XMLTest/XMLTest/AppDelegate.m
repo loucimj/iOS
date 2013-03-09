@@ -1,22 +1,53 @@
 //
 //  AppDelegate.m
-//  XMLTest
 //
-//  Created by Javi on 17/01/13.
-//  Copyright (c) 2013 Javi. All rights reserved.
+//
+//  Created by Valentin Filip on 7/9/12.
+//  Copyright (c) 2012 AppDesignVault. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "ADVTheme.h"
+
+@interface AppDelegate ()
+
+- (void)customizeIPad;
+
+@end
+
+
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
+    [ADVThemeManager customizeAppAppearance];
+    /*
+    UITabBarController *tabVC = (UITabBarController *)self.window.rootViewController;
+    
+    NSArray *items = tabVC.tabBar.items;
+    for (int idx = 0; idx < items.count; idx++) {
+        UITabBarItem *item = [items objectAtIndex:idx];
+        [ADVThemeManager customizeTabBarItem:item forTab:((SSThemeTab)idx)];
+    }
+    */
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self customizeIPad];
+    } else {
+    }
     return YES;
 }
-							
+
+- (void)customizeIPad {
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UISplitViewController *splitViewController = (UISplitViewController *)[tabBarController.viewControllers objectAtIndex:0];
+    
+    
+    UINavigationController *navDetail = [splitViewController.viewControllers lastObject];
+    splitViewController.delegate = [navDetail.viewControllers objectAtIndex:0];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -25,7 +56,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

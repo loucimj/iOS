@@ -24,6 +24,19 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>HelveticaNeue-Roman.ttf</string>
+		<string>Segoe Print.ttf</string>
+		<string>DINPro-Bold.otf</string>
+		<string>DINPro-Black.otf</string>
+		<string>DINPro-CondBold.otf</string>
+		<string>DINPro-CondMedium.otf</string>
+		<string>DINPro-CondRegular.otf</string>
+		<string>DINPro-Light.otf</string>
+		<string>DINPro-Medium.otf</string>
+		<string>DINPro-Regular.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
@@ -45,8 +58,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>

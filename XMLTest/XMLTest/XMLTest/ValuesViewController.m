@@ -7,6 +7,7 @@
 //
 
 #import "ValuesViewController.h"
+#import "AddTicket.h"
 
 
 @interface ValuesViewController ()
@@ -110,6 +111,9 @@
 
 - (IBAction)buttonSave:(id)sender {
     
+    
+    NSLog(@"buttonSave pressed");
+    
     if ([self validateData]) {
         NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
         
@@ -126,13 +130,50 @@
         [temp setObject:pagos.text forKey:@"payments"];
         [selectedCard addEntriesFromDictionary:temp];
         
+        
+        AddTicket *list = [[AddTicket alloc] init];
+        
+        NSDate *fecha = [selectedCard objectForKey:@"date"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        
+        list.value = value.text;
+        list.action = @"ADD";
+        list.valueType = [selectedCard objectForKey:@"value_type"];
+        list.ticketDate = [formatter stringFromDate:fecha];
+        list.purchasedBy = [selectedCard objectForKey:@"holder"];
+        list.creditCard = [selectedCard objectForKey:@"cc_id"];
+        list.description = [selectedCard objectForKey:@"ticket_text"];
+        list.payments = pagos.text;
+        list.bypassCheck = @"";
+        list.value = value.text;
+        
+        [list loadXML];
+        
 /*
         URL = [URL stringByAppendingString:@"&bypass_check"];
         URL = [URL stringByAppendingString:[ticketInfo objectForKey:@"bypass_check"]];
  */
-        leyenda.text = @"saved";
-        NSLog(@"save %@",selectedCard);
-        [self performSegueWithIdentifier:@"GoToReportSegue" sender:sender];
+        
+        NSMutableDictionary *response = [[NSMutableDictionary alloc] init];
+        
+        if ([list.resultSet count] > 0) {
+            response = [list.resultSet objectAtIndex:0];
+            
+            if ([response objectForKey:@"code"] != nil) {
+                if ([[response objectForKey:@"code"] isEqualToString:@"1"]) {
+                    leyenda.text = @"saved";
+                    NSLog(@"save %@",selectedCard);
+                    [self performSegueWithIdentifier:@"GoToReportSegue" sender:sender];
+                } else {
+                    leyenda.text = [response objectForKey:@"error"];
+                    NSLog(@"save %@",[response objectForKey:@"error"]);
+                }
+            }
+        } else {
+            leyenda.text = @"Error enviando los datos!";
+        }
+        
     }
 }
 

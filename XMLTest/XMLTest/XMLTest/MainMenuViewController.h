@@ -15,4 +15,7 @@
     IBOutlet UILabel *value;
 }
 
+@property (strong, nonatomic) IBOutlet UILabel *label1;
+
+
 @end

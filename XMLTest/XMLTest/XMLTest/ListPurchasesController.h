@@ -10,6 +10,12 @@
 
 @interface ListPurchasesController : UITableViewController {
         NSMutableArray *tableContent;
+    
+    IBOutlet UILabel *bankName;
+    IBOutlet UILabel *periodText;
+    IBOutlet UILabel *cardNumber;
+    IBOutlet UILabel *username;
+    IBOutlet UIImageView *cardImage;
 }
 
 @property (nonatomic,strong) NSMutableDictionary *reportParameters;

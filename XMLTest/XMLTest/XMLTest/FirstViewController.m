@@ -86,7 +86,7 @@
     NSString *image = [[NSString alloc] init];
     
 //    title = [title stringByAppendingString: [dic objectForKey:@"card_type"]];
-    title = [title stringByAppendingString:@"XXXX-"];
+//    title = [title stringByAppendingString:@"XXXX-"];
     title = [title stringByAppendingString:[dic objectForKey:@"cc_number"]];
 
     subtitle = [subtitle stringByAppendingString:[dic objectForKey:@"bank"]];

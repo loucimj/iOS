@@ -94,7 +94,7 @@
         //acceder a la primera instancia del tabcontroller
         NSMutableDictionary *temp = [[NSMutableDictionary alloc] init];
         NSMutableDictionary *temp2 = [[NSMutableDictionary alloc] init];
-        NSMutableDictionary *temp3 = [[NSMutableDictionary alloc] init];
+//        NSMutableDictionary *temp3 = [[NSMutableDictionary alloc] init];
 
         
         [temp setObject:@"10" forKey:@"rowLimit"];

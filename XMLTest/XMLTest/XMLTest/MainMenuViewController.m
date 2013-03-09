@@ -9,12 +9,14 @@
 #import "MainMenuViewController.h"
 #import "GetOverviewStatus.h"
 #import "BankCell.h"
+#import "ADVTheme.h"
 
 @interface MainMenuViewController ()
 
 @end
 
 @implementation MainMenuViewController
+@synthesize label1;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,6 +36,14 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    //Customizacion look and feel
+    [ADVThemeManager customizeView:self.view];
+
+    [ADVThemeManager customizeMainLabel:self.label1];
+    self.label1.font = [UIFont fontWithName:@"DINPro-Bold" size:14.0f];
+    self.label1.textColor = [UIColor colorWithRed:0.29f green:0.29f blue:0.29f alpha:1.00f];
+    
     
     GetOverviewStatus *list = [[GetOverviewStatus alloc] init];
     
@@ -51,6 +61,9 @@
     NSNumber *x = [f numberFromString:[headerData objectForKey:@"total_to_pay"]];
     [f setNumberStyle:NSNumberFormatterCurrencyStyle];
     value.text = [f stringFromNumber:x];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,14 +76,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [tableContent count];
 }
@@ -166,6 +179,7 @@
         
         
         [tmp setObject:[headerData objectForKey:@"period"] forKey:@"due_period"];
+        [tmp setObject:[selectedData objectForKey:@"description"] forKey:@"bank_name"];
         [tmp addEntriesFromDictionary:selectedData];
         
         [segue.destinationViewController performSelector:@selector(setReportParameters:)  withObject:tmp];
