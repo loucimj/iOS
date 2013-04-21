@@ -11,6 +11,7 @@
 @interface ADVRoundProgressView : UIView
 
 @property (nonatomic)           float    progress;
+@property (nonatomic)           NSString *textLabel;
 @property (nonatomic)           float    piePadding;
 @property (nonatomic)           float    fontSize;
 @property (nonatomic, strong)   UIImage *image;

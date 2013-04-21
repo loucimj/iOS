@@ -8,7 +8,8 @@
 
 #import "GraphViewController.h"
 #import "GetGraph.h"
-#import "ReportCell.h"
+#import "ProfileCell.h"
+#import "ADVTheme.h"
 
 @interface GraphViewController ()
 
@@ -59,7 +60,10 @@
     [list loadXML];
     
     tableContent = list.resultSet;
+    headerData = list.headerData;
     
+    UIImageView *imgTableFooter = [[UIImageView alloc] initWithImage:[[ADVThemeManager sharedTheme] tableFooterBackground]];
+    [self.tableView setTableFooterView:imgTableFooter];
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,9 +86,20 @@
     return [tableContent count];
 }
 
+- (void)customizeAndAddLabel:(UILabel *)label toCell:(ProfileCell *)cell {
+    label.backgroundColor = [UIColor clearColor];
+    [ADVThemeManager customizeSecondaryLabel:label];
+    label.font = [UIFont fontWithName:@"HelveticaNeueCE-Roman" size:12.0];
+    label.textAlignment = UITextAlignmentCenter;
+    [label sizeToFit];
+    label.tag = 100;
+    [cell addSubview:label];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+/*
     ReportCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
@@ -101,7 +116,70 @@
     [f setNumberStyle:NSNumberFormatterCurrencyStyle];
     cell.valorAPagar.text = [f stringFromNumber:x];
     cell.descripcion.text = [dic objectForKey:@"month"];
+ */
+
     
+    ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    // Configure the cell...
+    if (cell == nil) {
+        cell = [[ProfileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    NSMutableDictionary *dic = [tableContent objectAtIndex:indexPath.row];
+    
+
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage tallImageNamed:@"list-element.png"]];
+//    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    cell.descripcion.text = [dic objectForKey:@"month"];
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [f setLocale:locale];
+    NSNumber *x = [f numberFromString:[dic objectForKey:@"total"]];
+    [f setNumberStyle:NSNumberFormatterCurrencyStyle];
+    cell.valor.text = [f stringFromNumber:x];
+    
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *max = [f numberFromString: [[headerData objectAtIndex:0] objectForKey:@"max_value_total"]];
+    NSNumber *min = [f numberFromString: [[headerData objectAtIndex:0] objectForKey:@"min_value"]];
+    
+    float hwm = [max floatValue] - [min floatValue];
+    float percentage = ([x floatValue] - [min floatValue])/hwm;
+    float increment = hwm / 5;
+    [cell.progressBar setProgress:percentage];
+        //[cell.progressBar setProgress:0.5];
+
+    NSMutableArray *markers = [NSMutableArray array];
+    for (UIView *subV in cell.subviews) {
+        if (subV.tag == 100) {
+            [markers addObject:subV];
+        }
+    }
+    for (UIView *subV in markers) {
+        [subV removeFromSuperview];
+    }
+//    [f setNumberStyle:NSNumberFormatterCurrencyStyle];
+    UILabel *marker1 = [[UILabel alloc] initWithFrame:CGRectMake(19, 50, 30, 16)];
+    marker1.text = [f stringFromNumber:min];
+    [self customizeAndAddLabel:marker1 toCell:cell];
+    
+    UILabel *marker2 = [[UILabel alloc] initWithFrame:CGRectMake(220, 50, 30, 16)];
+    marker2.text = [f stringFromNumber:max];
+    [self customizeAndAddLabel:marker2 toCell:cell];
+    
+    UILabel *marker3 = [[UILabel alloc] initWithFrame:CGRectMake(60, 50, 30, 16)];
+    marker3.text = [f stringFromNumber:[[NSNumber alloc] initWithFloat:[min floatValue]+(increment*1)]];
+    [self customizeAndAddLabel:marker3 toCell:cell];
+    
+    UILabel *marker4 = [[UILabel alloc] initWithFrame:CGRectMake(20+(40*3), 50, 30, 16)];
+    marker4.text = [f stringFromNumber:[[NSNumber alloc] initWithFloat:[min floatValue]+(increment*3)]];
+    [self customizeAndAddLabel:marker4 toCell:cell];
+/*
+    UILabel *marker5 = [[UILabel alloc] initWithFrame:CGRectMake(20+(20*3), 50, 30, 16)];
+    marker5.text = [f stringFromNumber:[[NSNumber alloc] initWithFloat:[min floatValue]+(increment*3)]];
+    [self customizeAndAddLabel:marker5 toCell:cell];
+*/
     return cell;
 }
 

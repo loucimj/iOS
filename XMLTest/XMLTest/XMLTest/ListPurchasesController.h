@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ListPurchasesController : UITableViewController {
-        NSMutableArray *tableContent;
+    NSMutableArray *tableContent;
     
     IBOutlet UILabel *bankName;
     IBOutlet UILabel *periodText;

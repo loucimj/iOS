@@ -9,6 +9,7 @@
 #import "CardStatusViewController.h"
 #import "GetCreditCardStatus.h"
 #import "CardCell.h"
+#import "ADVTheme.h"
 
 @interface CardStatusViewController ()
 
@@ -50,6 +51,10 @@
     [list loadXML];
     
     tableContent = list.resultSet;
+
+    
+    UIImageView *imgTableFooter = [[UIImageView alloc] initWithImage:[[ADVThemeManager sharedTheme] tableFooterBackground]];
+    [self.tableView setTableFooterView:imgTableFooter];
     
 }
 
@@ -88,6 +93,8 @@
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [f setLocale:locale];
     NSNumber *x = [f numberFromString:[dic objectForKey:@"value"]];
     [f setNumberStyle:NSNumberFormatterCurrencyStyle];
     cell.value.text = [f stringFromNumber:x];

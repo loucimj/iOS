@@ -8,10 +8,15 @@
 
 #import "MTXMLLists.h"
 
-@interface GetGraph : MTXMLLists
+@interface GetGraph : MTXMLLists {
+    NSNumber *maxValue;
+    NSNumber *minValue;
+    NSMutableArray *headerData;
+    
+}
 
 
-
+@property IBOutlet NSMutableArray *headerData;
 @property IBOutlet NSString *bankID;
 @property IBOutlet NSString *creditCard;
 @property IBOutlet NSString *username;

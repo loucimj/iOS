@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "GetCreditCardList.h"
+#import "ADVTheme.h"
 
 @interface FirstViewController ()
 
@@ -36,6 +37,10 @@
     [list loadXML];
 
     tableContent = [[NSMutableArray alloc] initWithArray:list.resultSet copyItems:YES];
+
+
+    UIImageView *imgTableFooter = [[UIImageView alloc] initWithImage:[[ADVThemeManager sharedTheme] tableFooterBackground]];
+    [self.tableView setTableFooterView:imgTableFooter];
 }
 
 

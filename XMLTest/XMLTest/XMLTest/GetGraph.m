@@ -15,6 +15,7 @@
 @synthesize creditCard;
 @synthesize periodFrom;
 @synthesize resultSet;
+@synthesize headerData;
 
 - (void) loadXML {
     
@@ -81,7 +82,35 @@
     
     resultSet = [[NSMutableArray alloc] initWithArray:res copyItems:YES];
     
+
+    NSMutableArray *res2 = [[NSMutableArray alloc] init];
+    NSArray *nodes2 = NULL;
+    
+    nodes2 = [doc nodesForXPath:@"/graph" error:nil];
+    
+    //copio todos los items dentro de un nodo
+    for (CXMLElement *node in nodes2) {
+        //armo el item
+        NSMutableDictionary *item = [[NSMutableDictionary alloc] init];
+        for(int counter = 0; counter < [node childCount]; counter++) {
+            //  common procedure: dictionary with keys/values from XML node
+            tmpStr = [[node childAtIndex:counter] stringValue];
+            
+            if (tmpStr != nil && tmpStr.length >0) {
+                [item setObject:[[node childAtIndex:counter] stringValue] forKey:[[node childAtIndex:counter] name]];
+            } else {
+                [item setObject:@"" forKey:[[node childAtIndex:counter] name]];
+            }
+        }
+        
+        [res2 addObject:item];
+    }
+    
+    headerData = [[NSMutableArray alloc] initWithArray:res2 copyItems:YES];
+    
+    
     NSLog(@"graph Resultset %@",resultSet);
+    NSLog(@"graph header %@",headerData);
 }
 
 @end

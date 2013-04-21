@@ -9,8 +9,11 @@
 #import "SearchViewController.h"
 #import "Search.h"
 #import "ReportCell.h"
+#import "ADVTheme.h"
+#import "DeletePurchase.h"
 
 @interface SearchViewController ()
+
 
 @end
 
@@ -34,6 +37,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    UIImageView *imgTableFooter = [[UIImageView alloc] initWithImage:[[ADVThemeManager sharedTheme] tableFooterBackground]];
+    [self.tableView setTableFooterView:imgTableFooter];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,6 +80,8 @@
     cell.descripcion.text = [dic objectForKey:@"description"];
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [f setLocale:locale];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     NSNumber *x = [f numberFromString:[dic objectForKey:@"payment_value"]];
     [f setNumberStyle:NSNumberFormatterCurrencyStyle];
@@ -131,6 +140,39 @@
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIImageView *imgBkg = [[UIImageView alloc] initWithImage:[[ADVThemeManager sharedTheme] tableSectionHeaderBackground]];
+    UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, 300, 22)];
+
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+
+    if ([tableContent count] > 0) {
+        NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+        [f setLocale:locale];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSString *items = [[NSString alloc] init];
+        NSNumber *itemCount = [[NSNumber alloc] init];
+        itemCount = [NSNumber numberWithInt:[tableContent count]];
+        items = [f stringFromNumber:itemCount];
+        
+        if ([tableContent count] > 1) {
+            lblTitle.text = @"Se han encontrado ";
+            lblTitle.text = [lblTitle.text stringByAppendingString:items];
+            lblTitle.text = [lblTitle.text stringByAppendingString:@" tickets"];
+        } else {
+            lblTitle.text = @"Se ha encontrado 1 solo ticket";
+        }
+    } else {
+        lblTitle.text = @"";
+    }
+    lblTitle.backgroundColor = [UIColor clearColor];
+    lblTitle.textColor = [UIColor colorWithRed:0.43f green:0.43f blue:0.43f alpha:1.00f];
+    lblTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:15.0f];
+    
+    [imgBkg addSubview:lblTitle];
+    return imgBkg;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -182,6 +224,46 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        DeletePurchase *deleteService = [[DeletePurchase alloc] init];
+        
+        
+#warning - Reemplazar con SINGLETON!!!
+//        NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+        NSMutableDictionary *selectedData = [tableContent objectAtIndex:indexPath.row];
+        
+        deleteService.username = @"LOUCIMJ";
+        deleteService.purchaseID = [selectedData objectForKey:@"pur_id"];
+
+        NSLog(@"DELETE OBJECT %@",selectedData);
+        
+        [deleteService loadXML];
+
+        Search *searchService = [[Search alloc] init];
+        
+        searchService.searchPhrase = lastSearch;
+        searchService.username = @"LOUCIMJ";
+        
+        
+        [searchService loadXML];
+        
+        tableContent = [[NSMutableArray alloc] initWithArray:searchService.resultSet copyItems:YES];
+        
+        [self.tableView reloadData];
+        
+    }
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self handleSearch:searchBar];
 }
@@ -189,6 +271,7 @@
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     [self handleSearch:searchBar];
 }
+
 
 - (void)handleSearch:(UISearchBar *)searchBar {
     NSLog(@"User searched for %@", searchBar.text);
@@ -204,6 +287,9 @@
     tableContent = [[NSMutableArray alloc] initWithArray:searchService.resultSet copyItems:YES];
     
     [self.tableView reloadData];
+
+    lastSearch = searchBar.text;
+    
     [searchBar resignFirstResponder]; // if you want the keyboard to go away
 }
 

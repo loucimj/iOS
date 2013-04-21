@@ -58,6 +58,8 @@
 		4196EC8C16B213E7005F86E4 /* GetPurchasesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC8B16B213E7005F86E4 /* GetPurchasesList.m */; };
 		4196EC8F16B21866005F86E4 /* ReportControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */; };
 		4196EC9216B21F96005F86E4 /* ReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4196EC9116B21F96005F86E4 /* ReportCell.m */; };
+		41C1F2D21708D4FC008AF2C6 /* CENCOSUD.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C1F2D01708D4FC008AF2C6 /* CENCOSUD.png */; };
+		41C1F2D31708D4FC008AF2C6 /* CMR.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C1F2D11708D4FC008AF2C6 /* CMR.png */; };
 		41CA1CE316DD486100B4B59E /* CardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CA1CE216DD486100B4B59E /* CardListViewController.m */; };
 		41CA1CE616DE840200B4B59E /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CA1CE516DE840200B4B59E /* GraphViewController.m */; };
 		41CA1CE916E25D1C00B4B59E /* AddTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CA1CE816E25D1C00B4B59E /* AddTicket.m */; };
@@ -230,6 +232,9 @@
 		41CA1E5616E7C72A00B4B59E /* ADVFitpulseTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CA1E5116E7C72A00B4B59E /* ADVFitpulseTheme.m */; };
 		41CA1E5716E7C72A00B4B59E /* ADVTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CA1E5416E7C72A00B4B59E /* ADVTheme.m */; };
 		41CA1E6516E9FA3100B4B59E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CA1E6216E90FEA00B4B59E /* QuartzCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		41CA1E6B16EBAFA300B4B59E /* profile-stats-bg-cctrackr.png in Resources */ = {isa = PBXBuildFile; fileRef = 41CA1E6A16EBAFA300B4B59E /* profile-stats-bg-cctrackr.png */; };
+		41CA1E6E16EE210600B4B59E /* DeletePurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CA1E6D16EE210600B4B59E /* DeletePurchase.m */; };
+		41D03DA717037AE600117C12 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F1E04216F8995A001A0C30 /* ProfileCell.m */; };
 		41F1537616B96D9C006BA11F /* ctrackr.png in Resources */ = {isa = PBXBuildFile; fileRef = 41F1537516B96D9C006BA11F /* ctrackr.png */; };
 		41F1537916B971A7006BA11F /* ListPurchasesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F1537816B971A7006BA11F /* ListPurchasesController.m */; };
 /* End PBXBuildFile section */
@@ -322,6 +327,8 @@
 		4196EC8E16B21866005F86E4 /* ReportControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportControllerViewController.m; sourceTree = "<group>"; };
 		4196EC9016B21F96005F86E4 /* ReportCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportCell.h; sourceTree = "<group>"; };
 		4196EC9116B21F96005F86E4 /* ReportCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportCell.m; sourceTree = "<group>"; };
+		41C1F2D01708D4FC008AF2C6 /* CENCOSUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CENCOSUD.png; sourceTree = "<group>"; };
+		41C1F2D11708D4FC008AF2C6 /* CMR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CMR.png; sourceTree = "<group>"; };
 		41CA1CE116DD486100B4B59E /* CardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardListViewController.h; sourceTree = "<group>"; };
 		41CA1CE216DD486100B4B59E /* CardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardListViewController.m; sourceTree = "<group>"; };
 		41CA1CE416DE840100B4B59E /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
@@ -510,9 +517,14 @@
 		41CA1E5316E7C72A00B4B59E /* ADVTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVTheme.h; sourceTree = "<group>"; };
 		41CA1E5416E7C72A00B4B59E /* ADVTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVTheme.m; sourceTree = "<group>"; };
 		41CA1E6216E90FEA00B4B59E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		41CA1E6A16EBAFA300B4B59E /* profile-stats-bg-cctrackr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-stats-bg-cctrackr.png"; sourceTree = "<group>"; };
+		41CA1E6C16EE210500B4B59E /* DeletePurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletePurchase.h; sourceTree = "<group>"; };
+		41CA1E6D16EE210600B4B59E /* DeletePurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletePurchase.m; sourceTree = "<group>"; };
 		41F1537516B96D9C006BA11F /* ctrackr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ctrackr.png; sourceTree = "<group>"; };
 		41F1537716B971A7006BA11F /* ListPurchasesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPurchasesController.h; sourceTree = "<group>"; };
 		41F1537816B971A7006BA11F /* ListPurchasesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPurchasesController.m; sourceTree = "<group>"; };
+		41F1E04116F8995A001A0C30 /* ProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		41F1E04216F8995A001A0C30 /* ProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +605,8 @@
 		4139E38716D0625F00483A3E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				41F1E04116F8995A001A0C30 /* ProfileCell.h */,
+				41F1E04216F8995A001A0C30 /* ProfileCell.m */,
 				4179826216AC936400349ABA /* SimpleTableCell.h */,
 				4179826316AC936400349ABA /* SimpleTableCell.m */,
 				4196EC9016B21F96005F86E4 /* ReportCell.h */,
@@ -626,6 +640,8 @@
 				4139E39B16DAD8A800483A3E /* GetGraph.m */,
 				41CA1CE716E25D1C00B4B59E /* AddTicket.h */,
 				41CA1CE816E25D1C00B4B59E /* AddTicket.m */,
+				41CA1E6C16EE210500B4B59E /* DeletePurchase.h */,
+				41CA1E6D16EE210600B4B59E /* DeletePurchase.m */,
 			);
 			name = business;
 			sourceTree = "<group>";
@@ -686,6 +702,7 @@
 		41CA1CEB16E7C60200B4B59E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				41CA1E6A16EBAFA300B4B59E /* profile-stats-bg-cctrackr.png */,
 				41CA1CEC16E7C60200B4B59E /* backButton.png */,
 				41CA1CED16E7C60200B4B59E /* backButton@2x.png */,
 				41CA1CEE16E7C60200B4B59E /* background-568h@2x.png */,
@@ -992,6 +1009,8 @@
 		41CA1E6616EA25D500B4B59E /* CCTrackr images */ = {
 			isa = PBXGroup;
 			children = (
+				41C1F2D01708D4FC008AF2C6 /* CENCOSUD.png */,
+				41C1F2D11708D4FC008AF2C6 /* CMR.png */,
 				41F1537516B96D9C006BA11F /* ctrackr.png */,
 				412AA6CA16AF014D00173714 /* MASTER_old.png */,
 				412AA6CE16AF0C4D00173714 /* MASTER.png */,
@@ -1268,6 +1287,9 @@
 				41CA1E1F16E7C60300B4B59E /* workout-step1@2x.png in Resources */,
 				41CA1E2016E7C60300B4B59E /* workout-step2.png in Resources */,
 				41CA1E2116E7C60300B4B59E /* workout-step2@2x.png in Resources */,
+				41CA1E6B16EBAFA300B4B59E /* profile-stats-bg-cctrackr.png in Resources */,
+				41C1F2D21708D4FC008AF2C6 /* CENCOSUD.png in Resources */,
+				41C1F2D31708D4FC008AF2C6 /* CMR.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1278,6 +1300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41D03DA717037AE600117C12 /* ProfileCell.m in Sources */,
 				410393C116A83EF400D8D0CC /* main.m in Sources */,
 				4179825716AB2ECA00349ABA /* CXMLDocument_CreationExtensions.m in Sources */,
 				4179825816AB2ECC00349ABA /* CXMLNode_CreationExtensions.m in Sources */,
@@ -1328,6 +1351,7 @@
 				41CA1E5516E7C72A00B4B59E /* ADVDefaultTheme.m in Sources */,
 				41CA1E5616E7C72A00B4B59E /* ADVFitpulseTheme.m in Sources */,
 				41CA1E5716E7C72A00B4B59E /* ADVTheme.m in Sources */,
+				41CA1E6E16EE210600B4B59E /* DeletePurchase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,5 +10,10 @@
 
 @interface SearchViewController : UITableViewController {
     NSMutableArray *tableContent;
+    NSString *lastSearch;
 }
+
+-(void)searchFunction:(NSString *) searchText;
+
+
 @end

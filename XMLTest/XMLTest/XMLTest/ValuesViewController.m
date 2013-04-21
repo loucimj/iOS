@@ -85,6 +85,8 @@
 - (BOOL) validateData  {
     
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [f setLocale:locale];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSNumber *numberValue=[f numberFromString:value.text];
@@ -179,6 +181,8 @@
 
 - (IBAction)textEdited:(id)sender {
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [f setLocale:locale];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSNumber *numberValue=[f numberFromString:value.text];

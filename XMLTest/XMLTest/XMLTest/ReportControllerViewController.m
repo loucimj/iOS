@@ -10,6 +10,7 @@
 #import "GetPurchasesList.h"
 #import "ReportCell.h"
 #import "CardCell.h"
+#import "ADVTheme.h"
 
 @interface ReportControllerViewController ()
 

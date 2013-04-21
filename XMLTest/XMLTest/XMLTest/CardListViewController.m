@@ -9,6 +9,7 @@
 #import "CardListViewController.h"
 #import "GetCreditCardList.h"
 #import "CardCell.h"
+#import "ADVTheme.h"
 
 @interface CardListViewController ()
 
@@ -40,6 +41,10 @@
     [list loadXML];
     
     tableContent = [[NSMutableArray alloc] initWithArray:list.resultSet copyItems:YES];
+    
+    UIImageView *imgTableFooter = [[UIImageView alloc] initWithImage:[[ADVThemeManager sharedTheme] tableFooterBackground]];
+    [self.tableView setTableFooterView:imgTableFooter];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,9 +107,6 @@
     
     return cell;
     
-    // Configure the cell...
-    
-    return cell;
 }
 
 /*

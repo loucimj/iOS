@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ADVRoundProgressView.h"
 
 @interface ReportCell : UITableViewCell
 
@@ -21,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *bankName;
 @property (nonatomic, weak) IBOutlet UILabel *cardHolder;
 @property (nonatomic, weak) IBOutlet UILabel *cardNumber;
+@property (strong, nonatomic) IBOutlet ADVRoundProgressView *roundProgressSmall;
 
 
 @end

@@ -32,6 +32,7 @@
 @synthesize image;
 @synthesize fontSize;
 @synthesize tintColor;
+@synthesize textLabel;
 
 
 #pragma mark - View lifecycle
@@ -93,7 +94,12 @@
     
     progress = newProgress;
     self.pieView.progress = progress;
-    self.lblValue.text = [NSString stringWithFormat:@"%2.0f%%", progress*100];
+    
+    if (self.textLabel == nil ) {
+        self.lblValue.text = [NSString stringWithFormat:@"%2.0f%%", progress*100];
+    } else {
+        self.lblValue.text = self.textLabel;
+    }
 }
 
 - (void)setFontSize:(float)newFontSize {

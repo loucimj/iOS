@@ -9,6 +9,8 @@
 #import "ListPurchasesController.h"
 #import "ReportCell.h"
 #import "GetPurchasesList.h"
+#import "ADVTheme.h"
+#import "DeletePurchase.h"
 
 @interface ListPurchasesController ()
 
@@ -36,6 +38,24 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    [ADVThemeManager customizeView:self.view];
+    //    [ADVThemeManager customizeTableView:self.tableView];
+    UIImageView *imgTableFooter = [[UIImageView alloc] initWithImage:[[ADVThemeManager sharedTheme] tableFooterBackground]];
+    [self.tableView setTableFooterView:imgTableFooter];
+    
+    [ADVThemeManager customizeSecondaryLabel:bankName];
+    bankName.font = [UIFont fontWithName:@"DINPro-CondBold" size:15.0f];
+    bankName.textColor = [UIColor colorWithRed:0.29f green:0.29f blue:0.29f alpha:1.00f];
+    
+    [ADVThemeManager customizeMainLabel:periodText];
+    periodText.font = [UIFont fontWithName:@"DINPro-CondBold" size:26.0f];
+    periodText.textColor = [UIColor colorWithRed:0.29f green:0.29f blue:0.29f alpha:1.00f];
+    
+    [ADVThemeManager customizeSecondaryLabel:cardNumber];
+    cardNumber.font = [UIFont fontWithName:@"DINPro-Bold" size:18.0f];
+    cardNumber.textColor = [UIColor colorWithRed:0.29f green:0.29f blue:0.29f alpha:1.00f];
+
+    
     
     GetPurchasesList *purchases = [[GetPurchasesList alloc] init];
     
@@ -68,6 +88,7 @@
     [purchases loadXML];
     
     tableContent = [[NSMutableArray alloc] initWithArray:purchases.resultSet copyItems:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,6 +129,8 @@
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [f setLocale:locale];
     NSNumber *x = [f numberFromString:[dic objectForKey:@"payment_value"]];
     [f setNumberStyle:NSNumberFormatterCurrencyStyle];
     cell.valorAPagar.text = [f stringFromNumber:x];
@@ -151,10 +174,23 @@
 //        NSLog(@"%@: %@ - %@",[dic objectForKey:@"remaining_payments"],cuotasPagadas,cuotasText);
         
         cell.cuotasProgress.text = cuotasText;
+
+        float z;
+        z = [cuotasPagadas intValue];
+        z = z/[cuotas intValue];
+        
+        cell.roundProgressSmall.textLabel = cuotasText;
+        cell.roundProgressSmall.progress = z;
+        cell.roundProgressSmall.image = [UIImage tallImageNamed:@"progress-circle-small"];
+        cell.roundProgressSmall.fontSize = 12.0f;
+        cell.roundProgressSmall.hidden = NO;
     } else {
         cell.cuotas.text = @"";
         cell.cuotasProgress.text = @"";
+        cell.roundProgressSmall.hidden = YES;
     }
+
+    [ADVThemeManager customizeMainLabel:cell.valorAPagar];
     cell.fecha.text = [dic objectForKey:@"date"];
     
     return cell;
@@ -211,5 +247,36 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        DeletePurchase *deleteService = [[DeletePurchase alloc] init];
+        
+        
+#warning - Reemplazar con SINGLETON!!!
+        //        NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+        NSMutableDictionary *selectedData = [tableContent objectAtIndex:indexPath.row];
+        
+        
+        deleteService.username = @"LOUCIMJ";
+        deleteService.purchaseID = [selectedData objectForKey:@"pur_id"];
+        
+        NSLog(@"DELETE OBJECT %@",selectedData);
+        
+        [deleteService loadXML];
+        
+        [tableContent removeAllObjects];
+        [self viewDidLoad];
+        
+    }
+}
+
 
 @end
